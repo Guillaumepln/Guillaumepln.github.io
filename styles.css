@@ -1,9 +1,8 @@
-/* Reset de base */
+/* Réinitialisation de base */
 body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    height: 100%;
     font-family: Arial, sans-serif;
 }
 
@@ -79,7 +78,7 @@ body, html {
 
 /* Contenu principal */
 .content {
-    margin-top: 60px;  /* Espacement pour la barre de navigation */
+    margin-top: 60px;  /* Pour l'espace sous la barre de navigation */
     padding: 20px;
     transition: margin-left 0.3s;
     width: 100%;
