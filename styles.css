@@ -83,6 +83,7 @@ body, html {
     transition: margin-left 0.3s;
     width: 100%;
     position: relative;  /* Empêche le contenu de se déplacer */
+    z-index: 1; /* S'assurer que le contenu est toujours en dessous du menu */
 }
 
 .content h1, .content h2 {
