@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="navbar">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav class="navbar-links">
+            <a href="#section1">Accueil</a>
+            <a href="#section2">À propos</a>
+            <a href="#section3">Contact</a>
+        </nav>
+    </header>
     <div class="container">
         <nav class="sidebar" id="menu">
             <ul>
@@ -16,7 +24,6 @@
             </ul>
         </nav>
         <main class="content">
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <section id="section1">
                 <h1>Bienvenue</h1>
                 <p>Ceci est la première section de la page.</p>
