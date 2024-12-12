@@ -4,7 +4,8 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;  /* Empêche le scroll horizontal sur la page */
+    height: 100%;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
 }
 
 /* Barre de navigation en haut */
@@ -96,9 +97,4 @@ body, html {
 /* Le contenu ne bouge pas et reste sous le menu */
 .content.open {
     margin-left: 0;  /* Pas de décalage pour le contenu */
-}
-
-/* Assurez-vous que le menu ne pousse pas le contenu */
-body {
-    overflow-x: hidden;  /* Empêche le scroll horizontal lorsque le menu est ouvert */
 }
