@@ -1,15 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Page avec Menu Déroulant</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>OUI</h1>
-    
-    
-    </header>
+    <div class="container">
+        <nav class="sidebar" id="menu">
+            <ul>
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section3">Section 3</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <section id="section1">
+                <h1>Bienvenue</h1>
+                <p>Ceci est la première section de la page.</p>
+            </section>
+            <section id="section2">
+                <h1>À propos</h1>
+                <p>Voici la deuxième section de la page.</p>
+            </section>
+            <section id="section3">
+                <h1>Contact</h1>
+                <p>Voici la troisième section de la page.</p>
+            </section>
+        </main>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
