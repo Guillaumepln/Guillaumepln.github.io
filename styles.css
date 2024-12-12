@@ -56,7 +56,7 @@ body, html {
     background-color: #34495e;
     overflow-x: hidden;
     transition: width 0.3s;
-    z-index: 999;
+    z-index: 999; /* Le menu sera au-dessus du contenu */
 }
 
 .side-menu ul {
@@ -94,5 +94,5 @@ body, html {
 }
 
 .content.open {
-    margin-left: 250px;
+    margin-left: 0;  /* Pas de décalage pour le contenu */
 }
