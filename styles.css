@@ -56,7 +56,7 @@ body, html {
     background-color: #34495e;
     overflow-x: hidden;
     transition: width 0.3s;
-    z-index: 999; /* Le menu sera au-dessus du contenu */
+    z-index: 999; /* Assurer que le menu est au-dessus du contenu */
 }
 
 .side-menu ul {
@@ -82,6 +82,7 @@ body, html {
     padding: 20px;
     transition: margin-left 0.3s;
     width: 100%;
+    position: relative;  /* Empêche le contenu de se déplacer */
 }
 
 .content h1, .content h2 {
@@ -93,6 +94,7 @@ body, html {
     width: 250px;
 }
 
+/* Le contenu ne bouge pas et reste sous le menu */
 .content.open {
-    margin-left: 0;  /* Pas de décalage pour le contenu */
+    margin-left: 0;  /* Pas de décalage, le contenu reste en place */
 }
