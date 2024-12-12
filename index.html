@@ -1,48 +1,38 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page avec Menu Déroulant</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="navbar">
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <nav class="navbar-links">
-            <a href="#section1">Accueil</a>
-            <a href="#section2">À propos</a>
-            <a href="#section3">Contact</a>
-        </nav>
-    </header>
-    <div class="container">
-        <nav class="sidebar" id="menu">
-            <ul>
-                <li><a href="#section1">Section 1</a></li>
-                <li><a href="#section2">Section 2</a></li>
-                <li><a href="#section3">Section 3</a></li>
-            </ul>
-        </nav>
-        <main class="content">
-            <section id="section1">
-                <h1>Bienvenue</h1>
-                <p>Ceci est la première section de la page.</p>
-            </section>
-            <section id="section2">
-                <h1>À propos</h1>
-                <p>Voici la deuxième section de la page.</p>
-            </section>
-            <section id="section3">
-                <h1>Contact</h1>
-                <p>Voici la troisième section de la page.</p>
-            </section>
-        </main>
+<div class="navbar">
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <div class="navbar-links">
+        <a href="#home">Accueil</a>
+        <a href="#about">À propos</a>
+        <a href="#contact">Contact</a>
     </div>
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('open');
-        }
-    </script>
-</body>
-</html>
+</div>
+
+<div class="sidebar" id="sidebar">
+    <ul>
+        <li><a href="#home">Bienvenue</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <section id="home">
+        <h1>Bienvenue</h1>
+        <p>Ceci est la première section de la page.</p>
+    </section>
+    <section id="about">
+        <h1>À propos</h1>
+        <p>Voici la deuxième section de la page.</p>
+    </section>
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>Voici la troisième section de la page.</p>
+    </section>
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+</script>
