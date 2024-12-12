@@ -4,6 +4,7 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;  /* Empêche le scroll horizontal sur la page */
 }
 
 /* Barre de navigation en haut */
@@ -56,9 +57,10 @@ body, html {
     background-color: #34495e;
     overflow-x: hidden;
     transition: width 0.3s;
-    z-index: 999; /* Assurer que le menu est au-dessus du contenu */
+    z-index: 999; /* Menu au-dessus du contenu */
 }
 
+/* Contenu du menu */
 .side-menu ul {
     list-style: none;
     padding: 0;
@@ -80,22 +82,23 @@ body, html {
 .content {
     margin-top: 60px;  /* Pour l'espace sous la barre de navigation */
     padding: 20px;
-    transition: margin-left 0.3s;
-    width: 100%;
-    position: relative;  /* Empêche le contenu de se déplacer */
+    transition: margin-left 0.3s;  /* Transition pour le contenu */
+    width: 100%;  /* Contenu avec la largeur maximale possible */
+    position: relative;  /* Permet de ne pas déplacer le contenu */
     z-index: 1; /* S'assurer que le contenu est toujours en dessous du menu */
-}
-
-.content h1, .content h2 {
-    margin-top: 20px;
 }
 
 /* Quand le menu est ouvert */
 .side-menu.open {
-    width: 250px;
+    width: 250px;  /* Taille du menu déroulant */
 }
 
 /* Le contenu ne bouge pas et reste sous le menu */
 .content.open {
-    margin-left: 0;  /* Pas de décalage, le contenu reste en place */
+    margin-left: 0;  /* Pas de décalage pour le contenu */
+}
+
+/* Assurez-vous que le menu ne pousse pas le contenu */
+body {
+    overflow-x: hidden;  /* Empêche le scroll horizontal lorsque le menu est ouvert */
 }
