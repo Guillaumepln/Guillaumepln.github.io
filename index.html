@@ -1,38 +1,51 @@
-<div class="navbar">
-    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-    <div class="navbar-links">
-        <a href="#home">Accueil</a>
-        <a href="#about">À propos</a>
-        <a href="#contact">Contact</a>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu déroulant avec barre de navigation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu-bar">
+        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </div>
-</div>
 
-<div class="sidebar" id="sidebar">
-    <ul>
-        <li><a href="#home">Bienvenue</a></li>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</div>
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="#">Bienvenue</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
 
-<div class="content">
-    <section id="home">
+    <div class="content">
         <h1>Bienvenue</h1>
         <p>Ceci est la première section de la page.</p>
-    </section>
-    <section id="about">
-        <h1>À propos</h1>
-        <p>Voici la deuxième section de la page.</p>
-    </section>
-    <section id="contact">
-        <h1>Contact</h1>
-        <p>Voici la troisième section de la page.</p>
-    </section>
-</div>
 
-<script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('open');
-    }
-</script>
+        <h2>À propos</h2>
+        <p>Voici la deuxième section de la page.</p>
+
+        <h2>Contact</h2>
+        <p>Voici la troisième section de la page.</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('sideMenu');
+            if (menu.style.width === '250px') {
+                menu.style.width = '0';
+            } else {
+                menu.style.width = '250px';
+            }
+        }
+    </script>
+</body>
+</html>
