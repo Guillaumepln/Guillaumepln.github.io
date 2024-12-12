@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="menu-bar">
+    <!-- Barre de navigation en haut -->
+    <div class="navbar">
         <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <ul class="navbar-links">
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </div>
 
+    <!-- Menu latéral -->
     <div class="side-menu" id="sideMenu">
         <ul>
             <li><a href="#">Bienvenue</a></li>
@@ -26,6 +26,7 @@
         </ul>
     </div>
 
+    <!-- Contenu principal de la page -->
     <div class="content">
         <h1>Bienvenue</h1>
         <p>Ceci est la première section de la page.</p>
@@ -38,6 +39,7 @@
     </div>
 
     <script>
+        // Fonction pour afficher/masquer le menu latéral
         function toggleMenu() {
             var menu = document.getElementById('sideMenu');
             if (menu.style.width === '250px') {
