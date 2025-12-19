@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jeu JS - Esquive les blocs</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+    }
+
+    h1 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    #info {
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    #score {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    canvas {
+      border: 2px solid #444;
+      background: #000;
+    }
+
+    #btn-restart {
+      margin-top: 10px;
+      padding: 6px 12px;
+      background: #1e88e5;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      display: none;
+    }
+
+    #btn-restart:hover {
+      background: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Esquive les blocs</h1>
+  <div id="info">
+    Flèches gauche / droite pour bouger.<br />
+    Survis le plus longtemps possible.
+  </div>
+  <div id="score">Score : 0</div>
+  <canvas id="game" width="400" height="600"></canvas>
+  <button id="btn-restart">Rejouer</button>
+
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const scoreEl = document.getElementById("score");
+    const btnRestart = document.getElementById("btn-restart");
+
+    const width = canvas.width;
+    const height = canvas.height;
+
+    const player = {
+      x: width / 2 - 20,
+      y: height - 50,
+      w: 40,
+      h: 40,
+      speed: 5,
+      vx: 0
+    };
+
+    let obstacles = [];
+    let obstacleTimer = 0;
+    let obstacleInterval = 60; // frames
+    let running = true;
+    let score = 0;
+    let frame = 0;
+    let keys = {};
+
+    // Gestion des touches
+    window.addEventListener("keydown", (e) => {
+      keys[e.key] = true;
+    });
+
+    window.addEventListener("keyup", (e) => {
+      keys[e.key] = false;
+    });
+
+    btnRestart.addEventListener("click", () => {
+      resetGame();
+    });
+
+    function resetGame() {
+      obstacles = [];
+      obstacleTimer = 0;
+      obstacleInterval = 60;
+      running = true;
+      score = 0;
+      frame = 0;
+      player.x = width / 2 - player.w / 2;
+      btnRestart.style.display = "none";
+      loop();
+    }
+
+    function createObstacle() {
+      const w = 40 + Math.random() * 60;
+      const x = Math.random() * (width - w);
+      const speed = 2 + Math.random() * 3;
+
+      obstacles.push({
+        x,
+        y: -40,
+        w,
+        h: 20 + Math.random() * 30,
+        vy: speed
+      });
+    }
+
+    function updatePlayer() {
+      if (keys["ArrowLeft"]) {
+        player.vx = -player.speed;
+      } else if (keys["ArrowRight"]) {
+        player.vx = player.speed;
+      } else {
+        player.vx = 0;
+      }
+
+      player.x += player.vx;
+
+      // Limites
+      if (player.x < 0) player.x = 0;
+      if (player.x + player.w > width) player.x = width - player.w;
+    }
+
+    function updateObstacles() {
+      obstacles.forEach((o) => {
+        o.y += o.vy;
+      });
+
+      // Supprimer ceux qui sortent
+      obstacles = obstacles.filter((o) => o.y < height + 50);
+    }
+
+    function checkCollisions() {
+      for (let o of obstacles) {
+        if (
+          player.x < o.x + o.w &&
+          player.x + player.w > o.x &&
+          player.y < o.y + o.h &&
+          player.y + player.h > o.y
+        ) {
+          running = false;
+          btnRestart.style.display = "inline-block";
+          return;
+        }
+      }
+    }
+
+    function drawPlayer() {
+      ctx.fillStyle = "#4caf50";
+      ctx.fillRect(player.x, player.y, player.w, player.h);
+    }
+
+    function drawObstacles() {
+      ctx.fillStyle = "#e53935";
+      obstacles.forEach((o) => {
+        ctx.fillRect(o.x, o.y, o.w, o.h);
+      });
+    }
+
+    function drawScore() {
+      scoreEl.textContent = "Score : " + score;
+    }
+
+    function loop() {
+      if (!running) {
+        // Afficher un message de fin
+        ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+        ctx.fillRect(0, 0, width, height);
+        ctx.fillStyle = "#fff";
+        ctx.textAlign = "center";
+        ctx.font = "24px system-ui";
+        ctx.fillText("Game Over", width / 2, height / 2 - 10);
+        ctx.font = "18px system-ui";
+        ctx.fillText("Score : " + score, width / 2, height / 2 + 20);
+        return;
+      }
+
+      frame++;
+      score = Math.floor(frame / 5);
+
+      ctx.clearRect(0, 0, width, height);
+
+      updatePlayer();
+      updateObstacles();
+      checkCollisions();
+
+      // Création d'obstacles
+      obstacleTimer++;
+      if (obstacleTimer >= obstacleInterval) {
+        createObstacle();
+        obstacleTimer = 0;
+
+        // On rend un peu plus difficile au fur et à mesure
+        if (obstacleInterval > 25) {
+          obstacleInterval--;
+        }
+      }
+
+      drawPlayer();
+      drawObstacles();
+      drawScore();
+
+      requestAnimationFrame(loop);
+    }
+
+    // Lancer le jeu
+    loop();
+  </script>
+</body>
+</html>
