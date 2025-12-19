@@ -1,56 +1,45 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Déroulant avec Barre de Navigation</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Barre de navigation en haut -->
-    <div class="menu-bar">
-        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="test_jeu.html">Jeu</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+<div class="content home">
+    <section class="hero">
+        <h1>Bienvenue sur mon GitHub.io</h1>
+        <p class="subtitle">
+            Un espace où je partage mes projets, mes tests, et mes expérimentations web.
+        </p>
+    </section>
 
-    <!-- Menu latéral -->
-    <div class="side-menu" id="sideMenu">
-        <ul>
-            <li><a href="#">Bienvenue</a></li>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div>
+    <section class="intro">
+        <h2>🎯 Objectif du site</h2>
+        <p>
+            Ce site me sert de vitrine pour présenter mes projets, héberger des démos,
+            tester des jeux JavaScript, et expérimenter des interfaces web.
+            C’est un espace d’apprentissage, d’essais, et de fun.
+        </p>
+    </section>
 
-    <!-- Contenu principal de la page -->
-    <div class="content">
-        <h1>Bienvenue</h1>
-        <p>Ceci est la première section de la page.</p>
+    <section class="features">
+        <h2>📌 Ce que tu peux trouver ici</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>🕹️ Jeux & Prototypes</h3>
+                <p>Des mini‑jeux JavaScript, des tests front‑end, et des idées en cours.</p>
+            </div>
 
-        <h2>À propos</h2>
-        <p>Voici la deuxième section de la page.</p>
+            <div class="card">
+                <h3>💻 Projets Web</h3>
+                <p>Des pages, des interfaces, des composants, et des expérimentations UI.</p>
+            </div>
 
-        <h2>Contact</h2>
-        <p>Voici la troisième section de la page.</p>
-    </div>
+            <div class="card">
+                <h3>📚 Apprentissage</h3>
+                <p>Des essais techniques, des concepts testés, et des démos pédagogiques.</p>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById('sideMenu');
-            if (menu.style.width === '250px') {
-                menu.style.width = '0';
-                document.querySelector('.content').style.marginLeft = '0';
-            } else {
-                menu.style.width = '250px';
-                document.querySelector('.content').style.marginLeft = '250px';
-            }
-        }
-    </script>
-</body>
-</html>
+    <section class="contact">
+        <h2>📬 Me contacter</h2>
+        <p>
+            Une idée, une suggestion, ou juste envie d’échanger ?
+            Tu peux me contacter via GitHub ou les liens disponibles dans le menu.
+        </p>
+    </section>
+</div>
