@@ -1,52 +1,35 @@
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
+/* Les styles déjà existants pour body, container, h1, button, hidden */
+
+/* Nouveau : input mot de passe et bouton Valider */
+#passInput {
+  padding: 10px 15px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
 }
 
-.container {
-  text-align: center;
-  color: white;
-}
-
-h1 {
-  font-size: 2.5em;
-  animation: fadeIn 2s ease-in-out;
-}
-
-button {
-  padding: 15px 30px;
+#passBtn {
+  padding: 10px 20px;
   font-size: 1.2em;
   border: none;
   border-radius: 30px;
   background-color: white;
   color: #ff4b7d;
   cursor: pointer;
+  margin-left: 10px;
   transition: 0.3s;
 }
 
-button:hover {
-  transform: scale(1.1);
+#passBtn:hover {
+  transform: scale(1.05);
   background-color: #ffe6f0;
 }
 
-#message {
-  margin-top: 20px;
-  font-size: 1.5em;
-  animation: fadeIn 2s ease-in-out;
-}
-
-.hidden {
-  display: none;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Erreur mot de passe */
+#errorMsg {
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: yellow;
 }
