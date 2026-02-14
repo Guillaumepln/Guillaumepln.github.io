@@ -4,7 +4,9 @@ const message = document.getElementById("message");
 
 button.addEventListener("click", () => {
   message.classList.remove("hidden");
-  createHeart();
+  for (let i = 0; i < 10; i++) {
+  setTimeout(createHeart, i * 200);
+  }
 });
 
 function createHeart() {
