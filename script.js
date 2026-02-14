@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  const password = "rose2026"; // 🔑 mot de passe que tu choisis
+  // === MOT DE PASSE ===
+  const password = "rose2026"; 
   const passInput = document.getElementById("passInput");
   const passBtn = document.getElementById("passBtn");
   const errorMsg = document.getElementById("errorMsg");
@@ -12,21 +13,24 @@ document.addEventListener("DOMContentLoaded", function () {
       passwordContainer.classList.add("hidden");
       loveContainer.classList.remove("hidden");
     } else {
-      errorMsg.style.display = "block";
+      errorMsg.classList.remove("hidden");
     }
   });
 
-  // === ton code original des coeurs ===
-  const button = document.getElementById("loveBtn");
+  // === BOUTON “CLIQUE ICI ❤️” ===
+  const loveBtn = document.getElementById("loveBtn");
   const message = document.getElementById("message");
 
-  button.addEventListener("click", () => {
+  loveBtn.addEventListener("click", () => {
     message.classList.remove("hidden");
+
+    // Créer 10 cœurs en cascade
     for (let i = 0; i < 10; i++) {
       setTimeout(createHeart, i * 200);
     }
   });
 
+  // === FONCTION POUR LES CŒURS ===
   function createHeart() {
     const heart = document.createElement("div");
     heart.innerHTML = "❤️";
@@ -42,5 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
       heart.remove();
     }, 4000);
   }
+
+  // === AJOUT DE L'ANIMATION FLOAT ===
+  const style = document.createElement("style");
+  style.innerHTML = `
+  @keyframes float {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-800px); opacity: 0; }
+  }`;
+  document.head.appendChild(style);
 
 });
