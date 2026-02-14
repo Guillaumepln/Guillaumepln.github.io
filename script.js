@@ -10,9 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   passBtn.addEventListener("click", () => {
     if (passInput.value === password) {
+      // cacher le formulaire mot de passe
       passwordContainer.classList.add("hidden");
       loveContainer.classList.remove("hidden");
+
+      // changer le fond en rose
+      document.body.classList.add("rose-bg");
     } else {
+      // afficher le message d'erreur
       errorMsg.classList.remove("hidden");
     }
   });
@@ -47,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 4000);
   }
 
-  // === AJOUT DE L'ANIMATION FLOAT ===
+  // === AJOUT DE L'ANIMATION FLOAT POUR LES CŒURS ===
   const style = document.createElement("style");
   style.innerHTML = `
   @keyframes float {
