@@ -1,6 +1,47 @@
-/* Les styles déjà existants pour body, container, h1, button, hidden */
+/* === Global === */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
 
-/* Nouveau : input mot de passe et bouton Valider */
+/* Container central */
+.container {
+  text-align: center;
+  color: white;
+}
+
+/* Titres */
+h1 {
+  font-size: 2.5em;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* === Boutons === */
+button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  color: #ff4b7d;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 15px;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-color: #ffe6f0;
+}
+
+/* Input mot de passe */
 #passInput {
   padding: 10px 15px;
   font-size: 1.2em;
@@ -9,27 +50,28 @@
   margin-top: 20px;
 }
 
-#passBtn {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 30px;
-  background-color: white;
-  color: #ff4b7d;
-  cursor: pointer;
-  margin-left: 10px;
-  transition: 0.3s;
-}
-
-#passBtn:hover {
-  transform: scale(1.05);
-  background-color: #ffe6f0;
-}
-
-/* Erreur mot de passe */
+/* Message d’erreur */
 #errorMsg {
   margin-top: 10px;
   font-size: 1em;
   font-weight: bold;
   color: yellow;
+}
+
+/* Message secret */
+#message {
+  margin-top: 20px;
+  font-size: 1.5em;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Cacher les éléments */
+.hidden {
+  display: none;
+}
+
+/* Animation fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
