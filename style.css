@@ -3,12 +3,18 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  background: linear-gradient(135deg, #4facfe, #00f2fe); /* bleu au départ */
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
   overflow: hidden;
+  transition: background 1.5s ease; /* transition douce vers le rose */
+}
+
+/* Classe pour fond rose après mot de passe */
+.rose-bg {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
 }
 
 /* Container central */
