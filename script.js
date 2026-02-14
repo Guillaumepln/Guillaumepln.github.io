@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   // === MOT DE PASSE ===
-  const password = "rose2026"; 
+  const password = "EsraxJiji"; 
   const passInput = document.getElementById("passInput");
   const passBtn = document.getElementById("passBtn");
   const errorMsg = document.getElementById("errorMsg");
