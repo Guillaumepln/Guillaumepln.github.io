@@ -1,15 +1,30 @@
-<div class="container" id="passwordContainer">
-  <h1>Pour voir ton message secret ❤️</h1>
-  <input type="password" id="passInput" placeholder="Tape le mot de passe">
-  <button id="passBtn">Valider</button>
-  <p id="errorMsg" style="color: yellow; display:none;">Mot de passe incorrect 😢</p>
-</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pour toi ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div class="container hidden" id="loveContainer">
-  <h1 id="title">J’ai quelque chose à te dire...</h1>
-  <button id="loveBtn">Clique ici ❤️</button>
-  <p id="message" class="hidden">
-    Depuis que je t’ai vue, je te trouve incroyable 💕  
-    Joyeuse Saint-Valentin 🌹
-  </p>
-</div>
+  <!-- Section mot de passe -->
+  <div class="container" id="passwordContainer">
+    <h1>Pour voir ton message secret ❤️</h1>
+    <input type="password" id="passInput" placeholder="Tape le mot de passe">
+    <button id="passBtn">Valider</button>
+    <p id="errorMsg" class="hidden">Mot de passe incorrect 😢</p>
+  </div>
+
+  <!-- Section message secret -->
+  <div class="container hidden" id="loveContainer">
+    <h1 id="title">J’ai quelque chose à te dire...</h1>
+    <button id="loveBtn">Clique ici ❤️</button>
+    <p id="message" class="hidden">
+      Depuis que je t’ai vue, je te trouve incroyable 💕  
+      Joyeuse Saint-Valentin 🌹
+    </p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
